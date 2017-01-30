@@ -7,7 +7,8 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 #include <ESP8266WiFi.h>
 const char* ssid     = "<wifi name>";
 const char* password = "<wifi password>";
-const char* host = "<requestbus server>";
+const char* host     = "<requestbus server>";
+const int httpPort   = 8000;
 
 void light(String data);
 void off();
@@ -54,15 +55,15 @@ void loop() {
   
   // Use WiFiClient class to create TCP connections
   WiFiClient client;
-  const int httpPort = 8000;
   if (!client.connect(host, httpPort)) {
     Serial.println("connection failed");
     error();
+    delay(20000);
     return;
   }
   
   // We now create a URI for the request
-  String url = "/"; //"/testwifi/index.html";
+  String url = "/";
   Serial.print("Requesting URL: ");
   Serial.println(url);
   
@@ -89,7 +90,6 @@ void light(String data) {
   if (data.length() < 6)
     error();
   else {
-    //Data:x,y,z. Want to pick out x and y
     String time1_str = data.substring(data.indexOf(":") + 1, data.indexOf(","));
     const uint16_t time1 = atoi (time1_str.c_str());
     const uint16_t time2 = atoi (data.substring(
