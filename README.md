@@ -1,6 +1,6 @@
 This is the code for a project to get South Yorkshire bus times and display arival countdowns using a NeoPixel strip of LEDs.
 
-https://twitter.com/CalabiYau15/status/825367513747832832
+https://twitter.com/timfenwick15/status/825367513747832832
 
 The project consists of:
 - A Nodejs server that makes a request to http://tsy.acislive.com/ and parses out upcoming bus arival times
