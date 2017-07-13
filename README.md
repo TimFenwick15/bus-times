@@ -1,3 +1,5 @@
+NOTE - The service being used for this project no longer exists so the code now won't work
+
 This is the code for a project to get South Yorkshire bus times and display arival countdowns using a NeoPixel strip of LEDs.
 
 https://twitter.com/timfenwick15/status/825367513747832832
